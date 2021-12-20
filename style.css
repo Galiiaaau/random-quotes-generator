@@ -17,10 +17,16 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      transition: width 1s, height 1s, font-size 1s, border 1s, color 1s;
 }
 
 .btn-start:hover {
       opacity: 1;
+      width: 550px;
+      height: 85px;
+      font-size: 30px;
+      color: rgb(142, 142, 255);
+      border: 2px solid rgb(142, 142, 255);
 }
 
 .slide {
@@ -34,10 +40,15 @@
       color: #fff;
       font-size: 1.4rem;
       user-select: none;
+      transition: opacity 1s;
+}
+
+.slide .opacity {
+      opacity: 1;
 }
 
 .hide {
-      display: none;
+      opacity: 0;
 }
 
 .slide div {
@@ -51,5 +62,6 @@ span {
       position: absolute;
       left: 50%;
       top: 60%;
+      margin-top: 20px;
       transform: translate(-50%, -50%);
 }
