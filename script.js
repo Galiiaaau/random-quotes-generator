@@ -20,6 +20,7 @@ const sliderFunction = () => {
             const background = document.querySelector('body');
 
             for (let i = 0; i < data.length; i++) {
+                  let randomQ = data[Math.floor(Math.random() * data.length)];
                   let div = document.createElement('div');
                   div.classList.add('slide');
                   div.classList.add('opacity');
@@ -27,11 +28,11 @@ const sliderFunction = () => {
                   if (i === 0) div.style.background = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`;
                   let text = document.createElement('div');
                   let author = document.createElement('span');
-                  text.textContent = data[Math.floor(Math.random() * data.length)].text;
+                  text.textContent = '"' + randomQ.text + '"';
 
-                  if (data.author === null) {
+                  if (randomQ.author === null) {
                         author.textContent = "";
-                  } else author.textContent = '"' + data[Math.floor(Math.random() * data.length)].author + '"';
+                  } else author.textContent = '\u2013 ' + randomQ.author;
                   div.append(text);
                   div.append(author);
                   background.append(div);
