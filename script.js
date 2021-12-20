@@ -1,16 +1,89 @@
 const sliderFunction = () => {
-      const data = [
-            "Начальник не всегда прав, но он всегда начальник.",
-            "Время, затраченное на обсуждение проблемы обратно пропорционально значимости проблемы.",
-            "Если нужно срочно сделать какое - либо дело, обратись к тому, кто занят больше всех.",
-            "Не спеши выполнять приказ — его могут отменить.",
-            "Тому, кто сам ничего не делает, все кажется по плечу.",
-            "Начальник — это человек, который приходит на службу поздно, когда ты приходишь рано, и появляется чуть свет, когда ты опаздываешь.",
-            "Только когда читаешь разъяснение ранее полученной инструкции, догадываешься, что не понял не самой инструкции, ни разъяснений к ней.",
-            "Если отложить дело надолго, то его либо выполнит кто - нибудь другой, либо оно вообще перестанет быть нужным.",
-            "Не будь незаменимым — тебя никогда не повысят.",
-            "Позади всякого, кто сделал успешную карьеру, стоит озадаченная женщина.",
-      ];
+      const data = [{
+                  "text": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+                  "author": "Thomas Edison"
+            },
+            {
+                  "text": "You can observe a lot just by watching.",
+                  "author": "Yogi Berra"
+            },
+            {
+                  "text": "A house divided against itself cannot stand.",
+                  "author": "Abraham Lincoln"
+            },
+            {
+                  "text": "Difficulties increase the nearer we get to the goal.",
+                  "author": "Johann Wolfgang von Goethe"
+            },
+            {
+                  "text": "Fate is in your hands and no one elses",
+                  "author": "Byron Pulsifer"
+            },
+            {
+                  "text": "Be the chief but never the lord.",
+                  "author": "Lao Tzu"
+            },
+            {
+                  "text": "Nothing happens unless first we dream.",
+                  "author": "Carl Sandburg"
+            },
+            {
+                  "text": "Well begun is half done.",
+                  "author": "Aristotle"
+            },
+            {
+                  "text": "Life is a learning experience, only if you learn.",
+                  "author": "Yogi Berra"
+            },
+            {
+                  "text": "Self-complacency is fatal to progress.",
+                  "author": "Margaret Sangster"
+            },
+            {
+                  "text": "Peace comes from within. Do not seek it without.",
+                  "author": "Buddha"
+            },
+            {
+                  "text": "What you give is what you get.",
+                  "author": "Byron Pulsifer"
+            },
+            {
+                  "text": "We can only learn to love by loving.",
+                  "author": "Iris Murdoch"
+            },
+            {
+                  "text": "Life is change. Growth is optional. Choose wisely.",
+                  "author": "Karen Clark"
+            },
+            {
+                  "text": "You'll see it when you believe it.",
+                  "author": "Wayne Dyer"
+            },
+            {
+                  "text": "Today is the tomorrow we worried about yesterday.",
+                  "author": null
+            },
+            {
+                  "text": "It's easier to see the mistakes on someone else's paper.",
+                  "author": null
+            },
+            {
+                  "text": "Every man dies. Not every man really lives.",
+                  "author": null
+            },
+            {
+                  "text": "To lead people walk behind them.",
+                  "author": "Lao Tzu"
+            },
+            {
+                  "text": "Having nothing, nothing can he lose.",
+                  "author": "William Shakespeare"
+            },
+            {
+                  "text": "Trouble is only opportunity in work clothes.",
+                  "author": "Henry J. Kaiser"
+            }
+      ]
 
       let count = 0;
       let slideCollection;
@@ -32,8 +105,15 @@ const sliderFunction = () => {
                   if (i !== 0) div.classList.add('hide');
                   if (i === 0) div.style.background = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`;
                   let text = document.createElement('div');
-                  text.textContent = data[i];
+                  let author = document.createElement('span');
+                  text.textContent = data[Math.floor(Math.random() * data.length)].text;
+                  
+                  if (data.author === null) {
+                        author.textContent = "";
+                  }
+                  else author.textContent = data[Math.floor(Math.random() * data.length)].author;
                   div.append(text);
+                  div.append(author);
                   background.append(div);
             }
 
@@ -51,7 +131,7 @@ const sliderFunction = () => {
             showNewSlide(count);
       }
 
-      function showNewSlide (n) {
+      function showNewSlide(n) {
             slideCollection[n].classList.remove('hide');
             slideCollection[n].style.background = `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`;
       }
