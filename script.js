@@ -32,7 +32,6 @@ const sliderFunction = () => {
                   if (data.author === null) {
                         author.textContent = "";
                   } else author.textContent = '"' + data[Math.floor(Math.random() * data.length)].author + '"';
-                  // text.style.transition = 'all 2s';
                   div.append(text);
                   div.append(author);
                   background.append(div);
